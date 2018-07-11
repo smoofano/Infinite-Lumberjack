@@ -1,0 +1,2 @@
+//Erases 'Beard Up' text
+global.leveling = 0

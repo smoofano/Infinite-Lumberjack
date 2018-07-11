@@ -1,0 +1,5 @@
+drawx = 248 + irandom(100)
+drawy = 780 + irandom(100)
+drawrot = -45 + irandom(90)
+
+alarm_set(0,7)

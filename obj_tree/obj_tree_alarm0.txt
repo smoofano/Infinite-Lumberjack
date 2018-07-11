@@ -1,0 +1,2 @@
+global.gameover_screen = 1
+audio_play_sound(snd_gameover2,1,false)

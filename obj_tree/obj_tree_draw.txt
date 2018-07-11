@@ -1,0 +1,14 @@
+//Draw Bark
+draw_sprite_ext(spr_bark,barksprite,x,y-72,drawscale,drawscale,drawrotation,drawcolor,drawalpha)
+
+//Draw Branch obstacle
+if(treedirection = 0 && obstacletype = 'branch') {if(chopped = 1) {draw_set_alpha(0.5)} draw_sprite_ext(spr_branch,branchsprite,x+128,y-72,drawscale,drawscale,drawrotation,drawcolor,drawalpha)};
+if(treedirection = 2 && obstacletype = 'branch') {if(chopped = 1) {draw_set_alpha(0.5)}draw_sprite_ext(spr_branch,branchsprite,x,y-72,-drawscale,drawscale,drawrotation,drawcolor,drawalpha)};
+
+//Draw Hole obstacle
+if(treedirection = 0 && obstacletype = 'hole') {if(chopped = 1) {draw_set_alpha(0.5)}draw_sprite_ext(spr_hole,0,x+128,y-72,-drawscale,drawscale,drawrotation,drawcolor,drawalpha)};
+if(treedirection = 2 && obstacletype = 'hole') {if(chopped = 1) {draw_set_alpha(0.5)}draw_sprite_ext(spr_hole,0,x,y-72,1,drawscale,drawrotation,drawcolor,drawalpha)};
+
+//Draw Bear obstacle
+if(treedirection = 0 && obstacletype = 'bear') {if(chopped = 1) {draw_set_alpha(0.5)}draw_sprite_ext(spr_bear,0,x+56,y-140,drawscale,drawscale,drawrotation,drawcolor,drawalpha)};
+if(treedirection = 2 && obstacletype = 'bear') {if(chopped = 1) {draw_set_alpha(0.5)}draw_sprite_ext(spr_bear,0,x+72,y-140,-drawscale,drawscale,drawrotation,drawcolor,drawalpha)};

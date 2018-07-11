@@ -1,0 +1,7 @@
+//Delete if off screen
+if(x >= 768) {instance_destroy()}
+if(x <= -128) {instance_destroy()}
+
+//Rotate chopped
+if(chopped = 1 && chopdirection = 'left') {drawrotation -= 5 drawscale -= 0.03 drawalpha -= 0.03}
+if(chopped = 1 && chopdirection = 'right') {drawrotation += 5 drawscale -= 0.03 drawalpha -= 0.03}

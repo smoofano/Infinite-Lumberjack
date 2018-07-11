@@ -1,0 +1,36 @@
+//Temporary music controller
+if(!audio_is_playing(snd_esteban)) {audio_play_sound(snd_esteban,10,true)}
+
+//Sets high score to current score if current score > high score
+if(score > highscore_value(1)) {highscore_add('High Score',score)}
+
+//Moves the time the player has to swing the axe down
+if(global.paused = 0) {if(global.gameover = 0 && global.gamestart = 1 && global.mainmenu = 0) {global.swingtimer -= global.swinginterval}}
+
+//Game over if the timer runs out
+if(global.swingtimer < 1 && global.gameover = 0 && global.gamestart = 1 && global.mainmenu = 0) {global.deathby = 'timer' global.gameover = 1}
+
+//Death verb
+if(global.gameover = 1  && global.gamestart = 1 && global.swingtimer < 1 && global.deathby = 'timer') {deathverbchance = irandom(10)}
+
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 0 && global.deathverb = 'nothing') {global.deathverb = 'crushed'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 1 && global.deathverb = 'nothing') {global.deathverb = 'pwned'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 2 && global.deathverb = 'nothing') {global.deathverb = 'destroyed'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 3 && global.deathverb = 'nothing') {global.deathverb = 'mauled'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 4 && global.deathverb = 'nothing') {global.deathverb = 'maimed'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 5 && global.deathverb = 'nothing') {global.deathverb = 'murdered'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 6 && global.deathverb = 'nothing') {global.deathverb = 'rekt'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 7 && global.deathverb = 'nothing') {global.deathverb = 'killed'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 8 && global.deathverb = 'nothing') {global.deathverb = 'trashed'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 9 && global.deathverb = 'nothing') {global.deathverb = 'decimated'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathverbchance = 10 && global.deathverb = 'nothing') {global.deathverb = 'laid to waste'} 
+
+//Death noun
+if(global.gameover = 1 && global.swingtimer < 1 && global.deathby = 'timer') {deathnounchance = irandom(5)}
+
+if(global.gameover = 1 && global.deathby = 'timer' && deathnounchance = 0 && global.deathnoun = 'nothing') {global.deathnoun = 'boredom'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathnounchance = 1 && global.deathnoun = 'nothing') {global.deathnoun = 'your own axe'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathnounchance = 2 && global.deathnoun = 'nothing') {global.deathnoun = 'crippling anxiety'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathnounchance = 3 && global.deathnoun = 'nothing') {global.deathnoun = 'an existential crisis'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathnounchance = 4 && global.deathnoun = 'nothing') {global.deathnoun = 'apathy'}
+if(global.gameover = 1 && global.deathby = 'timer' && deathnounchance = 4 && global.deathnoun = 'nothing') {global.deathnoun = 'indecision'}

@@ -1,0 +1,7 @@
+if(global.mainmenu = 1 && global.firstlaunch = 1)
+
+{global.mainmenu = 0
+global.countdown = 3
+audio_play_sound(snd_3,1,false)
+global.firstlaunch = 0
+alarm_set(3, 60)}

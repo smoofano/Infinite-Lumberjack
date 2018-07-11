@@ -1,0 +1,71 @@
+if(global.mainmenu = 0 && global.gameover = 0) {
+
+//Paused
+if(global.paused = 1 && global.gamestart = 1) { draw_set_alpha(0.5) draw_rectangle_colour(0,0,640,960,c_black, c_black, c_black, c_black, false) draw_sprite_ext(spr_paused_text,0,192, 192, 1,1,0,c_white,1)}
+
+//Draw Countdown
+if(global.gamestart = 0) {draw_set_alpha(0.5)
+draw_rectangle_colour(0, 448, 640, 512, c_black, c_black, c_black, c_black, false)
+draw_set_alpha(1)
+draw_sprite_ext(spr_countdown, global.countdown, 192, 384, 1, 1,0,c_white, 1)}
+
+
+//Draw Beard Level
+draw_set_alpha(1);
+draw_set_colour(c_black);
+if(global.gameover = 0) {draw_text(0, 5, global.beardlevel)};
+
+
+//Draw Current Score
+draw_set_alpha(1);
+draw_set_colour(c_black);
+if(global.gameover = 0) {draw_text(0,880,'Score: ' + string(score))};
+
+
+//Draw High Score
+draw_set_alpha(1);
+draw_set_colour(c_black);
+if(global.gameover = 0) {draw_text(0, 900, 'Highscore: ' + string(highscore_value(1)))};
+
+
+//Draw Chop Gauge
+draw_set_alpha(0.75)
+if(global.gameover = 0) {draw_rectangle_colour(128, 48, 512, 64, c_black,c_black,c_black,c_black, true)};
+if(global.gameover = 0) {draw_rectangle_colour(128, 48, 512, 64, c_gray,c_gray,c_gray,c_gray, false)};
+if(global.gameover = 0 && (global.swingtimer/1000) > 0.7 ) {draw_rectangle_colour(128, 48, 128+(384*(global.swingtimer/1000)), 64, c_green, c_green, c_green, c_green, false)};
+else if(global.gameover = 0 && (global.swingtimer/1000) > 0.3 ) {draw_rectangle_colour(128, 48, 128+(384*(global.swingtimer/1000)), 64, c_yellow, c_yellow, c_yellow, c_yellow, false)};
+if(global.gameover = 0 && (global.swingtimer/1000) < 0.3 ) {draw_rectangle_colour(128, 48, 128+(384*(global.swingtimer/1000)), 64, c_red, c_red, c_red, c_red, false)};
+
+//Draw Frenzy Gauge
+draw_set_alpha(0.75)
+if(global.gameover = 0) {draw_rectangle_colour(128, 64, 512, 80, c_black,c_black,c_black,c_black, true)
+draw_rectangle_colour(128, 64, 512, 80, c_gray,c_gray,c_gray,c_gray, false)
+draw_rectangle_colour(128, 64, 128 + global.frenzygauge * 3, 80, c_blue,c_blue,c_blue,c_blue, false)};
+
+
+//Draw Beard Up
+if(global.gameover = 0 && global.leveling = 1) {draw_sprite_ext(spr_beardup, 0,128, 192, 1, 1, 0, c_white,.9)};
+}
+
+//Main Menu
+if(global.mainmenu = 1 && global.firstlaunch = 1) {
+draw_sprite(spr_menu_bg,0,0,0)
+draw_sprite_ext(spr_logo,0, 128,192,1,1,0,c_white,1)
+draw_text_colour(192, 400, 'Press Enter to Start',c_white,c_white,c_white,c_white,1)}
+
+//Game Over Screen
+if(global.gameoverscreen = 1) {
+draw_set_alpha(1);
+draw_sprite_ext(spr_menu_bg, 0, 0, 0,1,1,0,c_gray, 1);
+draw_set_alpha(0.5);
+draw_rectangle_colour(16, 16, 620, 180, c_black, c_black, c_black, c_black, false);
+draw_set_alpha(1);
+draw_text_colour(32,32, 'GAME OVER',c_red,c_yellow,c_red,c_yellow,1);
+draw_text_colour(32, 128, "You were " + global.deathverb + ' by ' + global.deathnoun, c_white, c_white, c_white, c_white, 1);
+draw_text_colour(32, 64, 'Score:' + string(score),c_white, c_white, c_white, c_white, 1);
+draw_text_colour(32, 96, 'High Score: ' + string(highscore_value(1)), c_white, c_white, c_white, c_white, 1);
+draw_text_colour(32, 156, 'Press R to restart', c_white, c_white, c_white, c_white, 1);}
+
+//Test Plaid Overlay
+if(global.mainmenu = 0) {draw_sprite_ext(spr_plaidoverlay,0,0,0,1,1,0,c_white,.2)}
+

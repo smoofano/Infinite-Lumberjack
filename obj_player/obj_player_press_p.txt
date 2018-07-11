@@ -1,0 +1,1 @@
+if(global.paused = 0 && global.gamestart = 1) {global.paused = 1} else {global.paused = 0}

@@ -1,0 +1,67 @@
+if(global.swinging = 0 && global.paused = 0) {
+
+//Score on right direction, move off screen, and fade
+if(global.gameover = 0 && global.gamestart = 1 && y = 768 && treedirection = 0 && chopped = 0) {score += 1 chopped = 1 hspeed = 30 drawalpha = 0.95 chopdirection = global.playerlocation};
+if(global.gameover = 0 && global.gamestart = 1 && y = 768 && treedirection = 1 && chopped = 0) {score += 1 chopped = 1 hspeed = 30 drawalpha = 0.95 chopdirection = global.playerlocation};
+
+//Move log down
+if(global.gamestart = 1 && global.gameover = 0 && chopped = 0 && y < 768) {y = y+192};
+
+//Horizontal gameover
+if(global.gameover = 0 && global.gamestart = 1 && y = 768 && treedirection = 2 && chopped = 0) {global.gameover = 1 global.deathlocation = 1 global.deathby = obstacletype alarm_set(0,30)}
+
+//Vertical Game over + What killed you
+if(global.gameover = 0 && global.gamestart = 1 && y = 576 && treedirection = 2) {global.deathby = obstacletype global.gameover = 1 global.deathlocation = 2 alarm_set(0,30) audio_play_sound(snd_gameover,1,false)};
+
+//Death verb
+if(global.gameover = 1 && deathverb = 'nothing') {deathverbchance = irandom(10)}
+
+if(global.gameover = 1 && deathverbchance = 0) {global.deathverb = 'crushed'}
+if(global.gameover = 1 && deathverbchance = 1) {global.deathverb = 'pwned'}
+if(global.gameover = 1 && deathverbchance = 2) {global.deathverb = 'destroyed'}
+if(global.gameover = 1 && deathverbchance = 3) {global.deathverb = 'mauled'}
+if(global.gameover = 1 && deathverbchance = 4) {global.deathverb = 'maimed'}
+if(global.gameover = 1 && deathverbchance = 5) {global.deathverb = 'murdered'}
+if(global.gameover = 1 && deathverbchance = 6) {global.deathverb = 'rekt'}
+if(global.gameover = 1 && deathverbchance = 7) {global.deathverb = 'killed'}
+if(global.gameover = 1 && deathverbchance = 8) {global.deathverb = 'trashed'}
+if(global.gameover = 1 && deathverbchance = 9) {global.deathverb = 'decimated'}
+if(global.gameover = 1 && deathverbchance = 10) {global.deathverb = 'laid to waste'}
+
+//Death noun
+if(global.gameover = 1 && deathnoun = 'nothing') {deathnounchance = irandom(5)}
+
+//for branch
+if(global.gameover = 1 && deathnoun = 'nothing' && global.deathby = 'branch') {
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 0) {global.deathnoun = 'a branch'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 1) {global.deathnoun = 'a tree'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 2) {global.deathnoun = 'wood'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 3) {global.deathnoun = 'an overgrown twig'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 4) {global.deathnoun = 'a very large splinter'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 5) {global.deathnoun = 'timber'}}
+
+//for hole
+if(global.deathby = 'hole') {
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 0) {global.deathnoun = 'a scary squirrell'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 1) {global.deathnoun = 'an ornery owl'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 2) {global.deathnoun = 'a small woodland creature'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 3) {global.deathnoun = 'a wild woodpecker'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 4) {global.deathnoun = 'a startled spider'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 5) {global.deathnoun = 'a rather large worm'}}
+
+//for bear
+if(global.deathby = 'bear') {
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 0) {global.deathnoun = 'an angry bear'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 1) {global.deathnoun = 'a sleepy bear'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 2) {global.deathnoun = 'a rather small bear'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 3) {global.deathnoun = 'a particularly fluffy bear'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 4) {global.deathnoun = 'a constipated bear'}
+if(global.gameover = 1 && deathnoun = 'nothing' && deathnounchance = 5) {global.deathnoun = 'a grumpy bear'}}
+
+//Keeping track of last direction for possible future use (balancing?)
+if(global.gameover = 0 && global.gamestart = 1 && y = 384) global.globaldirection = treedirection
+
+//Destroy log after it exits the screen or game over
+if(y >= 960) {instance_destroy()}
+
+}

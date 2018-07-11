@@ -1,0 +1,2 @@
+//Ends swinging animation
+global.swinging = 0

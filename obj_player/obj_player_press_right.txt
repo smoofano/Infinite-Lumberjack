@@ -1,0 +1,52 @@
+if(global.swinging = 0 && global.paused = 0) {
+//Moves player to the left
+if(dead = 0 && global.gamestart = 1) {global.playerlocation = 'right'
+x = 384
+
+//Chop counter for grunt sounds
+if(global.chopcount < 6) {global.chopcount += 1} else {global.chopcount = 1}
+
+//Starts swinging animation
+global.swinging = 1
+
+//Sets alarm to end swinging
+alarm_set(0, 5)
+
+//Chop Text
+instance_create(0,0,obj_chop)
+
+//Creates a new log up top
+if(place_free(256,0)) {instance_create(256,0,obj_tree)}}
+
+//Resets timer requiring next axe swing
+if(global.gameover = 0 && global.gamestart = 1) {if(global.swingtimer <= 1000 - global.swingaddition) {global.swingtimer += global.swingaddition} 
+else {global.swingtimer += 1000 - global.swingtimer}}}
+
+dead = global.dead
+
+if(dead = 1 && instance_number(obj_beard) = 0) {instance_create(x,y,obj_beard)}
+
+//Chop SFX Right
+if(dead = 0 && global.gamestart = 1) {chopsound = irandom(3)
+
+if(chopsound = 0) {audio_play_sound(snd_chop1_right, 10, false)}
+if(chopsound = 1) {audio_play_sound(snd_chop2_right, 10, false)}
+if(chopsound = 2) {audio_play_sound(snd_chop3_right, 10, false)}
+if(chopsound = 3) {audio_play_sound(snd_chop4_right, 10, false)}}
+
+//Grunt SFX Right
+if(dead = 0 && global.gamestart = 1 && global.chopcount = 1) {gruntsound = irandom(3)
+
+if(gruntsound = 0) {audio_play_sound(snd_grunt1_right, 10, false)}
+if(gruntsound = 1) {audio_play_sound(snd_grunt2_right, 10, false)}
+if(gruntsound = 2) {audio_play_sound(snd_grunt3_right, 10, false)}
+if(gruntsound = 3) {audio_play_sound(snd_grunt4_right, 10, false)}}
+
+//Controls level up and timer to erase 'Beard Up' notification 
+if(global.dead = 0 && score = 5) {global.beard = 1 global.beardlevel = 'Pathetic Stubble' global.swingtimerreset = 180 global.leveling = 1 alarm[1] = 40};
+if(global.dead = 0 && score = 10) {global.beard = 2 global.beardlevel = 'Flannel wearing hipster' global.swingtimerreset = 120 global.leveling = 1 alarm[1] = 40};
+if(global.dead = 0 && score = 20) {global.beard = 3 global.beardlevel = 'Apprentice lumberjack' global.swingtimerreset = 100 global.leveling = 1 alarm[1] = 40};
+if(global.dead = 0 && score = 50) {global.beard = 4 global.beardlevel = 'Actual lumberack' global.swingtimerrest = 90 global.leveling = 1 alarm[1] = 40};
+if(global.dead = 0 && score = 100) {global.beard = 5 global.beardlevel = 'Actually GOOD lumberjack' global.swingtimerreset = 75 global.leveling = 1 alarm[1] = 40};
+if(global.dead = 0 && score = 200) {global.beard = 6 global.beardlevel = 'Experienced lumberjack' global.swingtimerreset = 60 global.leveling = 1 alarm[1] = 40};
+if(global.dead = 0 && score = 500) {global.beard = 7 global.beardlevel = 'More beard than man' global.swingtimerreset = 40 global.leveling = 1 alarm[1] = 40};

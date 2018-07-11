@@ -1,0 +1,8 @@
+if(global.gamestart = 0 && global.countdown > 0 && global.mainmenu = 0) {global.countdown -= 1 alarm_set(3,60)
+
+if(global.countdown = 3) audio_play_sound(snd_3,1,false)
+if(global.countdown = 2) audio_play_sound(snd_2,1,false)
+if(global.countdown = 1) audio_play_sound(snd_1,1,false)
+}
+
+else {global.gamestart = 1}

@@ -1,0 +1,41 @@
+//Setting variables on creation
+score = 0
+global.firsttree = 1
+global.gamestart = 0
+global.countdown = 99
+alarm_set(2, 60)
+global.canobstacle = 1
+global.deathby = 'nothing'
+global.deathverb = 'nothing'
+global.deathnoun = 'nothing'
+deathverbchance = 0
+deathnounchance = 0
+global.beard = 0
+global.beardlevel = 'Baby face'
+global.swinging = 0
+global.playerlocation = 'left'
+global.leveling = 0
+global.gameover = 0
+global.gameoverscreen = 0
+global.globaldirection = 0
+//global.swingtimerreset = 240
+global.swinginterval = 1
+global.swingtimer = 1000
+global.swingaddition = 10
+global.deathlocation = 0
+global.paused = 0
+global.mainmenu = 1
+global.dead = 0
+global.firstlaunch = 1
+global.treefix = 0
+global.deathaxis = 'nothing'
+global.chopcount = 0
+global.chopfrenzy = 0
+global.frenzygauge = 0
+global.frenzymax = 128
+chopsound = 0
+gruntsound = 0
+playgrunt = 0
+dead = 0
+
+audio_listener_orientation(0,0,1000,0,0,0)

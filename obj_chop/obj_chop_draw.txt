@@ -1,0 +1,1 @@
+draw_sprite_ext(spr_chop,0,drawx, drawy,1,1, drawrot,c_white,0.5)

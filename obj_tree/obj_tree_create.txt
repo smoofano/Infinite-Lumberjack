@@ -1,0 +1,103 @@
+deathverbchance = 'nothing'
+deathnounchance = 'nothing'
+deathverb = 'nothing'
+deathnoun = 'nothing'
+chopped = 0
+chopdirection = global.playerlocation
+drawcolor = c_white
+drawalpha = 1
+drawrotation = 0
+drawscale = 1
+
+//Dice roll to decide bark graphic
+barksprite = irandom(3)
+
+if(global.canobstacle = 0) {treedirection = 1}
+
+//Dice roll to decide direction if previous log did not have an obstacle.  First screen always has no obstacles.
+if(global.firsttree = 0 && global.canobstacle = 1) {treechance = irandom(50) global.canobstacle = 0} else {treedirection = 1 treechance = '' global.canobstacle = 1};
+
+//Dice roll to decide obstacletype
+obstaclechance = irandom(50);
+
+if(obstaclechance <= 3) {obstacletype = 'bear'}
+else if(obstaclechance < 47) {obstacletype = 'branch'}
+else if(obstaclechance >= 47) {obstacletype = 'hole'}
+else obstacletype = 'branch';
+
+//Dice roll to decide obstacle sprite
+//Branch sprite
+if(obstacletype = 'branch') {branchsprite = irandom(4)}
+
+//Hole sprite
+if(obstacletype = 'branch') {holesprite = irandom(1)}
+
+//Bear sprite
+if(obstacletype = 'bear') {bearsprite = irandom(0)}
+
+//Difficulty
+//Beard Level 0
+if(global.beard = 0)
+{if(treechance < 10) {treedirection = 0}
+else if(treechance <= 40) {treedirection = 1}
+else if(treechance > 40) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 1
+if(global.beard = 1)
+{if(treechance < 13) {treedirection = 0}
+else if(treechance <= 37) {treedirection = 1}
+else if(treechance > 37) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 2
+if(global.beard = 2)
+{if(treechance < 16) {treedirection = 0}
+else if(treechance <= 34) {treedirection = 1}
+else if(treechance > 34) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 3
+if(global.beard = 3)
+{if(treechance < 19) {treedirection = 0}
+else if(treechance <= 31) {treedirection = 1}
+else if(treechance > 31) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 4
+if(global.beard = 4)
+{if(treechance < 20) {treedirection = 0}
+else if(treechance <= 30) {treedirection = 1}
+else if(treechance > 30) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 5
+if(global.beard = 5)
+{if(treechance < 21) {treedirection = 0}
+else if(treechance <= 29) {treedirection = 1}
+else if(treechance > 29) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 6
+if(global.beard = 6)
+{if(treechance < 22) {treedirection = 0}
+else if(treechance <= 28) {treedirection = 1}
+else if(treechance > 28) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level 7
+if(global.beard = 7)
+{if(treechance < 23) {treedirection = 0}
+else if(treechance <= 27) {treedirection = 1}
+else if(treechance > 27) {treedirection = 2}
+else treedirection = 1};
+
+//Beard Level > 7
+if(global.beard > 7)
+{if(treechance < 24) {treedirection = 0}
+else if(treechance <= 26) {treedirection = 1}
+else if(treechance > 26) {treedirection = 2}
+else treedirection = 1};
+
+//Allow obstacle again after no obstacle log is created
+if(treedirection = 1) {global.canobstacle = 1}

@@ -1,0 +1,21 @@
+//Draw ground
+draw_sprite_ext(spr_ground,0,0,864,1,1,0,c_white,1)
+
+//Draw stump
+draw_sprite_ext(spr_stump,0,128,888,1,1,0,c_white,1)
+
+//Controls player location and swinging 'animation' (2 frames)
+if(global.playerlocation = 'left' && global.swinging = 1 && global.gameover = 0) {
+draw_sprite_ext(spr_player_swing,0,x,y-72,1,1,0,c_white,1)}
+else if(global.playerlocation = 'right' && global.swinging = 1 && global.gameover = 0) {draw_sprite_ext(spr_player_swing,0,x+128,y-72,-1,1,0,c_white,1)}
+else if(global.playerlocation ='left' && global.gameover = 0) {draw_sprite_ext(spr_player_stand,0,x,y-72,1,1,0,c_white,1)}
+else if(global.playerlocation = 'right' && global.gameover = 0) {draw_sprite_ext(spr_player_stand,0,x+128,y-72,-1,1,0,c_white,1)}
+else if (global.playerlocation = 'left' && global.gameover  = 1) {draw_sprite_ext(spr_player_ded,0,x+128,y-72,-1,1,0,c_white,1)}
+else if (global.playerlocation = 'right' && global.gameover  = 1) {draw_sprite_ext(spr_player_ded,0,x,y-72,1,1,0,c_white,1)}
+
+//
+if(dead = 1 && global.deathby = "bear" ) {draw_sprite_ext(spr_bear,0,x,y,1,1,90,c_white,1)}
+
+//Draw beard
+if(global.playerlocation = 'left' && global.beard > 0 && dead = 0) {draw_sprite_ext(spr_beard,global.beard - 1,x,y-72,1,1,0,c_white ,1)}
+if(global.playerlocation = 'right' && global.beard > 0 && dead = 0) {draw_sprite_ext(spr_beard,global.beard - 1,x+128,y-72,-1,1,0,c_white ,1)}

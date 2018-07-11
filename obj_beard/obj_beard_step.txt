@@ -1,0 +1,2 @@
+if(global.playerlocation = "left") {rotation -= 5 x = x-2}
+if(global.playerlocation = "right") {rotation += 5 x = x + 2}
